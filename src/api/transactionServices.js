@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'hhttps://sparktank-api.vercel.app';
+const API_URL = 'https://sparktank-backend.onrender.com';
 
 // Buy shares from another team
 export const buyShares = async (transactionData) => {
