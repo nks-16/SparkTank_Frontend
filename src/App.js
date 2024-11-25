@@ -16,8 +16,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [backendError, setBackendError] = useState('');
   const [purchasedTeams, setPurchasedTeams] = useState([]);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [isPlaceOrderDisabled, setIsPlaceOrderDisabled] = useState(false); // New state
+  const [successMessage, setSuccessMessage] = useState(''); // New state for success message
 
   const value = 5000;
 
@@ -39,7 +38,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
 
         const logs = await fetchTransactionLogsForTeam(userId);
         setTransactionLogs(logs || []);
-        setPurchasedTeams(logs.map((log) => log.sellingTeamId));
+        setPurchasedTeams(logs.map((log) => log.sellingTeamId)); // Track purchased teams
 
         const allTeams = JSON.parse(localStorage.getItem('teams')) || {};
         const teamsArray = Object.keys(allTeams)
@@ -86,7 +85,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const handlePlaceOrder = async () => {
     setErrorMessage('');
     setBackendError('');
-    setSuccessMessage('');
+    setSuccessMessage(''); // Clear success message before new attempt
 
     if (!selectedTeam) {
       setErrorMessage('Please select a team to invest in.');
@@ -97,7 +96,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
       return;
     }
 
-    setIsPlaceOrderDisabled(true); // Disable button on click
     const sharesToBuy = selectedPercentage;
     const transactionData = {
       purchasingTeamId: userId,
@@ -109,19 +107,23 @@ const InvestPage = ({ registeredTeam, userId }) => {
     try {
       await buyShares(transactionData);
 
+      // Update wallet and transaction logs
       const teamDetails = await fetchTeamById(userId);
       setWalletBalance(teamDetails.wallet);
 
       const logs = await fetchTransactionLogsForTeam(userId);
       setTransactionLogs(logs || []);
 
+      // Add purchased team to the purchasedTeams list and remove it from dropdown
       setPurchasedTeams((prev) => [...prev, selectedTeam]);
       setSelectedTeam('');
       setSelectedPercentage('');
 
+      // Set success message
       const teamName = getTeamNameById(selectedTeam);
       setSuccessMessage(`Successfully bought ${sharesToBuy}% shares in ${teamName}!`);
 
+      // Automatically hide the success message after 5 seconds
       setTimeout(() => setSuccessMessage(''), 5000);
     } catch (error) {
       console.error('Error placing order:', error);
@@ -137,16 +139,11 @@ const InvestPage = ({ registeredTeam, userId }) => {
 
   const filteredTeams = availableTeams.filter((team) => !purchasedTeams.includes(team.id));
 
-  const handleTeamChange = (teamId) => {
-    setSelectedTeam(teamId);
-    setIsPlaceOrderDisabled(false); // Enable button on team selection
-  };
-
   return (
     <div className="InvestPage">
       <div className="presenting-team">
-        <img src={logo} alt="NISB Logo" className="logo" />
-        <img src={ieeelogo} alt="IEEE Logo" className="ieeelogo" />
+      <img src={logo} alt="NISB Logo" className="logo" />
+      <img src={ieeelogo} alt="IEEE Logo" className="ieeelogo" />
         <h1>Investing Team: {registeredTeam || 'Unknown'}</h1>
       </div>
       <div className="content">
@@ -158,7 +155,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               <select
                 className="dropdown"
                 value={selectedTeam}
-                onChange={(e) => handleTeamChange(e.target.value)}
+                onChange={(e) => setSelectedTeam(e.target.value)}
               >
                 <option value="">Select Team</option>
                 {filteredTeams.map((team) => (
@@ -195,11 +192,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
                 readOnly
               />
             </div>
-            <button
-              className="place-order-btn"
-              onClick={handlePlaceOrder}
-              disabled={isPlaceOrderDisabled}
-            >
+            <button className="place-order-btn" onClick={handlePlaceOrder}>
               Place Order
             </button>
             {errorMessage && <p className="error">{errorMessage}</p>}
@@ -217,19 +210,16 @@ const InvestPage = ({ registeredTeam, userId }) => {
               readOnly
             />
           </div>
-          <div
-            className="transaction-logs"
-            style={{
-              fontSize: '1.5rem',
-              border: '2px solid wheat',
-              padding: '10px 30px',
-              borderRadius: '10px',
-              backgroundColor: 'black',
-              maxHeight: '400px',
-              overflowY: 'scroll',
-              width: '250px',
-            }}
-          >
+          <div className="transaction-logs" style={{
+            fontSize:"1.5rem",
+            border:"2px solid wheat",
+            padding:"10px 30px",
+            borderRadius:"10px",
+            backgroundColor:"black",
+            maxHeight:"400px",
+            overflowY:"scroll",
+            width:"250px"
+          }}>
             <h3>Transaction History</h3>
             {transactionLogs.length > 0 ? (
               <div className="logs-box">
