@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://sparktank-api.vercel.app/';
 
 // Fetch a team by ID
 export const fetchTeamById = async (teamId) => {
