@@ -16,7 +16,8 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [backendError, setBackendError] = useState('');
   const [purchasedTeams, setPurchasedTeams] = useState([]);
-  const [successMessage, setSuccessMessage] = useState(''); // New state for success message
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Disable button state
 
   const value = 5000;
 
@@ -85,14 +86,17 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const handlePlaceOrder = async () => {
     setErrorMessage('');
     setBackendError('');
-    setSuccessMessage(''); // Clear success message before new attempt
+    setSuccessMessage('');
+    setIsButtonDisabled(true); // Disable the button after placing the order
 
     if (!selectedTeam) {
       setErrorMessage('Please select a team to invest in.');
+      setIsButtonDisabled(false); // Re-enable the button if there's an error
       return;
     }
     if (!selectedPercentage) {
       setErrorMessage('Please select a percentage to buy.');
+      setIsButtonDisabled(false); // Re-enable the button if there's an error
       return;
     }
 
@@ -128,6 +132,8 @@ const InvestPage = ({ registeredTeam, userId }) => {
     } catch (error) {
       console.error('Error placing order:', error);
       setBackendError(error.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
+      setIsButtonDisabled(false); // Re-enable the button
     }
   };
 
@@ -142,8 +148,8 @@ const InvestPage = ({ registeredTeam, userId }) => {
   return (
     <div className="InvestPage">
       <div className="presenting-team">
-      <img src={logo} alt="NISB Logo" className="logo" />
-      <img src={ieeelogo} alt="IEEE Logo" className="ieeelogo" />
+        <img src={logo} alt="NISB Logo" className="logo" />
+        <img src={ieeelogo} alt="IEEE Logo" className="ieeelogo" />
         <h1>Investing Team: {registeredTeam || 'Unknown'}</h1>
       </div>
       <div className="content">
@@ -192,7 +198,11 @@ const InvestPage = ({ registeredTeam, userId }) => {
                 readOnly
               />
             </div>
-            <button className="place-order-btn" onClick={handlePlaceOrder}>
+            <button
+              className="place-order-btn"
+              onClick={handlePlaceOrder}
+              disabled={isButtonDisabled}
+            >
               Place Order
             </button>
             {errorMessage && <p className="error">{errorMessage}</p>}
@@ -210,16 +220,19 @@ const InvestPage = ({ registeredTeam, userId }) => {
               readOnly
             />
           </div>
-          <div className="transaction-logs" style={{
-            fontSize:"1.5rem",
-            border:"2px solid wheat",
-            padding:"10px 30px",
-            borderRadius:"10px",
-            backgroundColor:"black",
-            maxHeight:"400px",
-            overflowY:"scroll",
-            width:"250px"
-          }}>
+          <div
+            className="transaction-logs"
+            style={{
+              fontSize: '1.5rem',
+              border: '2px solid wheat',
+              padding: '10px 30px',
+              borderRadius: '10px',
+              backgroundColor: 'black',
+              maxHeight: '400px',
+              overflowY: 'scroll',
+              width: '250px',
+            }}
+          >
             <h3>Transaction History</h3>
             {transactionLogs.length > 0 ? (
               <div className="logs-box">
