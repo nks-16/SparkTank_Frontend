@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #ffd700; /* Gold */
+  --secondary-color: #1e3c72; /* Deep blue */
+  --accent-color: #ffea70; /* Light gold */
+  --background-dark: rgba(21, 24, 66, 0.9); /* Dark blue */
+  --background-light: #f0f0f0; /* Light gray */
+  --text-light: #ffffff; /* White */
+  --text-dark: #333333; /* Dark gray */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

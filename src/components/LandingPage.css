@@ -1,0 +1,123 @@
+/* LandingPage.css */
+
+/* Main container for the landing page */
+.LandingPage {
+  background-image: url('../images/finance.jpg');
+  background-size: cover;  /* Ensure the background covers the entire viewport */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  /* Keep the background fixed during scroll */
+  height: 100vh;  /* Full viewport height */
+  color: #ffffff;  /* Text color */
+  display: flex;
+  align-items: center;  /* Align items vertically */
+  justify-content: center;  /* Align items horizontally */
+  text-align: center;
+  position: relative;
+  overflow: hidden;  /* Ensure no overflow from child elements */
+}
+
+/* Overlay effect to add glow animation (if needed) */
+.LandingPage::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  transform: rotate(30deg);
+  animation: glow 8s linear infinite;
+}
+
+/* Keyframe animation for the glowing effect */
+@keyframes glow {
+  0% {
+      transform: rotate(30deg);
+  }
+  50% {
+      transform: rotate(50deg);
+  }
+  100% {
+      transform: rotate(30deg);
+  }
+}
+
+/* Content container inside the landing page */
+.LandingPage-content {
+  max-width: 700px;
+  padding: 10px 2rem;
+  backdrop-filter: blur(20px);
+  background-color: black;
+  border-radius: 10px;
+}
+
+/* Heading style */
+.LandingPage h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Paragraph style */
+.LandingPage p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #ffea70;  /* Light gray color for the text */
+}
+
+/* Button style for call to action (CTA) */
+.cta-btn {
+  padding: 15px 30px;
+  background: #ffd700;  /* Gold color */
+  color: #1e3c72;  /* Deep blue */
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.cta-btn:hover {
+  background: #ffea70;
+  box-shadow: 0 10px 25px rgba(255, 234, 112, 0.5);
+  transform: translateY(-5px);
+}
+
+/* Specific styling for the section text "Welcome to Spark Tank" or similar content */
+.WelcomeMessage {
+  background: none;  /* Remove any background */
+  padding: 2rem;
+  color: #fff;  /* Text color */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* About section or any specific content if applicable */
+#about {
+  color: #ffffff;  /* Ensure text color is white */
+}
+
+/* Optional description style */
+#description {
+  border-radius: 20px;
+  border: 2px solid rgb(8, 8, 67);
+}
+
+/* Any other general content styling */
+#content {
+  color: #ffffff;  /* Ensure text color is white */
+}
+
+#get-btn{
+  background-color: black;
+  z-index: 20;
+  font-size: 1.2rem;
+}
+#get-btn:hover{
+  background-color: transparent;
+}

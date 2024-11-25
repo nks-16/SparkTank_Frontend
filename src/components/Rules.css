@@ -1,0 +1,156 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Ensure the background image covers the full screen */
+.Rules {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../images/finance.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background fixed during scrolling */
+    color: var(--text-light);
+    text-align: center; /* Align text for smaller screens */
+    padding: 20px;
+}
+
+.Rules-content {
+    background: linear-gradient(to right,black,slategrey); /* Updated for better contrast */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(28, 54, 133, 0.833); /* More pronounced shadow */
+    max-width: 800px;
+    width: 100%;
+    line-height: 2rem;
+    font-size: 1.3rem;
+    text-align: left; /* Align content properly */
+}
+
+.Rules h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.Rules p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.Rules ul {
+    list-style-type: disc; /* Adds bullet points */
+    padding-left: 20px;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.Rules ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: var(--accent-color); /* Adds highlight for better readability */
+}
+
+.navigation-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center; /* Centers the buttons */
+    gap: 10px; /* Adds spacing between buttons */
+}
+
+.cta-btn {
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(255, 234, 112, 0.5);
+    color: black;
+    transform: translateY(-3px); /* Slightly reduced for subtle animation */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .Rules-content {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .Rules h1 {
+        font-size: 2rem;
+    }
+
+    .Rules p,
+    .Rules ul li {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Rules h1 {
+        font-size: 1.8rem;
+    }
+
+    .Rules p,
+    .Rules ul li {
+        font-size: 0.9rem;
+    }
+
+    .cta-btn {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+ul {
+    padding-left: 35%; /* Adds space before each list item */
+  }
+  
+  ul ul {
+    padding-left: 35%; /* Additional space for nested lists */
+  }
+}
+.logo {
+    width: 7%;  /* Set width as a percentage of the container */
+    height: auto;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 5%;        /* Adjust the distance from the top as a percentage */
+    left: 5%;       /* Adjust the distance from the left as a percentage */
+  }
+  
+  .ieeelogo {
+    width: 9%;  /* Set width as a percentage of the container */
+    height: auto;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 5%;      /* Adjust the distance from the top as a percentage */
+    right: 5%;    /* Adjust the distance from the right as a percentage */
+  }
+  

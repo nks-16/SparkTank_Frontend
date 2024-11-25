@@ -1,0 +1,175 @@
+/* Base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-image: url("../images/finance.jpg");
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevents horizontal scroll */
+}
+
+/* Container styles */
+.Register {
+  background:transparent; /* Increased transparency for better readability */
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for a modern look */
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  border: 2px solid yellow;
+}
+
+.Register h1 {
+  font-size: 2.5rem; /* Increased font size for better emphasis */
+  margin-bottom: 1.5rem;
+  color:cyan;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5); /* Enhanced shadow for text prominence */
+}
+
+/* Input box styles */
+.register-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Increased spacing for cleaner layout */
+  margin-bottom: 2rem;
+}
+
+.register-box label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  text-align: left; /* Align labels to the left */
+  color: #ffd700;
+}
+
+.register-box input {
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Slight border for improved definition */
+  border-radius: 8px; /* Rounded corners for a smoother look */
+  background: rgba(255, 255, 255, 0.15); /* Softer transparent background */
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.register-box input::placeholder {
+  color: #ccc;
+}
+
+.register-box input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #ffd700; /* Highlight border on focus */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Subtle glow effect */
+}
+
+/* Button styles */
+.register-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1e3c72;
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+}
+
+.register-btn:hover {
+  transform: translateY(-5px); /* Stronger hover effect */
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+}
+
+.register-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4); /* Reduced shadow for active state */
+}
+
+/* Message styles */
+.message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ff4500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.success-message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #32cd32;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .Register {
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  .Register h1 {
+    font-size: 2rem;
+  }
+
+  .register-box input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .register-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Register {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .Register h1 {
+    font-size: 1.8rem;
+  }
+
+  .register-box input {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .register-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+}
+.logo {
+  width: 7%;  /* Set width as a percentage of the container */
+  height: auto;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 5%;        /* Adjust the distance from the top as a percentage */
+  left: 5%;       /* Adjust the distance from the left as a percentage */
+}
+
+.ieeelogo {
+  width: 9%;  /* Set width as a percentage of the container */
+  height: auto;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 5%;      /* Adjust the distance from the top as a percentage */
+  right: 5%;    /* Adjust the distance from the right as a percentage */
+}
