@@ -32,7 +32,9 @@ const InvestPage = ({ registeredTeam, userId }) => {
       throw error;
     }
   };
-
+  useEffect(() => {
+  console.log('isLoading updated:', isLoading);
+  }, [isLoading]);
   useEffect(() => {
     const loadInitialData = async () => {
       try {
