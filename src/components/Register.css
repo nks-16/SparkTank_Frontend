@@ -24,7 +24,7 @@ html, body {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for a modern look */
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   text-align: center;
   border: 2px solid yellow;
