@@ -70,7 +70,7 @@ const Register = ({ onRegister }) => {
     <div className="Register">
       <img src={logo} alt="NISB Logo" className="logo" />
       <img src={ieeelogo} alt="IEEE Logo" className="ieeelogo" />
-      <h1>Register for Spark Tank</h1>
+      <h1>Login for Spark Tank</h1>
       <div className="register-box">
         <label htmlFor="username">Team Username:</label>
         <input
