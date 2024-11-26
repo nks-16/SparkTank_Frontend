@@ -18,7 +18,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const [purchasedTeams, setPurchasedTeams] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Disable button state
-  
 
   const value = 5000;
 
@@ -31,6 +30,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
       throw error;
     }
   };
+
   useEffect(() => {
     const loadInitialData = async () => {
       try {
@@ -88,7 +88,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
     setBackendError('');
     setSuccessMessage('');
     setIsButtonDisabled(true); // Disable the button after placing the order
-    setIsLoading(true);
+    setIsLoading(true); // Set loading state
 
     if (!selectedTeam) {
       setErrorMessage('Please select a team to invest in.');
@@ -204,7 +204,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               onClick={handlePlaceOrder}
               disabled={isButtonDisabled}
             >
-                Place Order
+              Place Order
             </button>
             {errorMessage && <p className="error">{errorMessage}</p>}
             {backendError && <p className="error">{backendError}</p>}
@@ -223,6 +223,16 @@ const InvestPage = ({ registeredTeam, userId }) => {
           </div>
           <div
             className="transaction-logs"
+            style={{
+              fontSize: '1.5rem',
+              border: '2px solid wheat',
+              padding: '10px 30px',
+              borderRadius: '10px',
+              backgroundColor: 'black',
+              maxHeight: '350px',
+              overflowY: 'scroll',
+              width: '250px',
+            }}
           >
             <h3>Transaction History</h3>
             {transactionLogs.length > 0 ? (
