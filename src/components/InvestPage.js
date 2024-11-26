@@ -88,7 +88,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
     setBackendError('');
     setSuccessMessage('');
     setIsButtonDisabled(true); // Disable the button after placing the order
-    setIsLoading(true); // Set loading state
 
     if (!selectedTeam) {
       setErrorMessage('Please select a team to invest in.');
