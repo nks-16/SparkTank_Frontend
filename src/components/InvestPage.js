@@ -209,7 +209,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               onClick={handlePlaceOrder}
               disabled={isButtonDisabled}
             >
-              {isLoading ? 'Placing Order...' : 'Place Order'}
+              Place Order
             </button>
             {errorMessage && <p className="error">{errorMessage}</p>}
             {backendError && <p className="error">{backendError}</p>}
