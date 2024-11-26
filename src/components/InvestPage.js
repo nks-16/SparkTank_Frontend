@@ -231,7 +231,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               backgroundColor: 'black',
               maxHeight: '300px',
               overflowY: 'scroll',
-              width: '400px'; 
+              width: '400px'
             }}
           >
             <h3>Transaction History</h3>
