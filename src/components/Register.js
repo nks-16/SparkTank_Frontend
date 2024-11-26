@@ -123,7 +123,7 @@ const Register = ({ onRegister }) => {
           placeholder="Enter your password"
         />
         <button className="register-btn" onClick={handleRegister}>
-          Register
+          Login
         </button>
       </div>
       {message && (
