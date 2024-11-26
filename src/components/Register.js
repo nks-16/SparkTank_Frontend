@@ -21,6 +21,40 @@ const predefinedIds = [
   '67429bace55771fcdbfc1417', '67429bb0e55771fcdbfc1419'
 ];
 
+const passwords = [
+  "TimCook@USA",
+  "AnupamMittal@India",
+  "ShivNadar@India",
+  "LarryEllison@USA",
+  "VineetaSingh@India",
+  "SergeyBrin@USA",
+  "AshneerGrover@India",
+  "JeffBezos@USA",
+  "JackMa@China",
+  "RatanTata@India",
+  "SundarPichai@India",
+  "BrianChesky@USA",
+  "GautamAdani@India",
+  "IndraNooyi@India",
+  "CarlosSlim@Mexico",
+  "ElonMusk@USA",
+  "MukeshAmbani@India",
+  "WarrenBuffett@USA",
+  "TravisKalanick@USA",
+  "NamitaThapar@India",
+  "AmancioOrtega@Spain",
+  "PeterThiel@Germany",
+  "LarryPage@USA",
+  "EvanSpiegel@USA",
+  "DanielEk@Sweden",
+  "PeyushBansal@India",
+  "JanKoum@Ukraine",
+  "SteveJobs@USA",
+  "ReedHastings@USA",
+  "AmanGupta@India"
+];
+
+
 const Register = ({ onRegister }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -35,7 +69,7 @@ const Register = ({ onRegister }) => {
         teams[`team-${i}`] = {
           id: predefinedIds[i - 1],
           username: `team-${i}`,
-          password: `password${i}`,
+          password: passwords[i-1],
         };
       }
       localStorage.setItem('teams', JSON.stringify(teams));
