@@ -230,7 +230,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               padding: '10px 30px',
               borderRadius: '10px',
               backgroundColor: 'black',
-              maxHeight: '350px',
+              maxHeight: '300px',
               overflowY: 'scroll',
               width: '250px',
             }}
