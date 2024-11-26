@@ -18,7 +18,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
   const [purchasedTeams, setPurchasedTeams] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(false); // Disable button state
-  const [isLoading, setIsLoading] = useState(false);
   
 
   const value = 5000;
@@ -32,9 +31,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
       throw error;
     }
   };
-  useEffect(() => {
-  console.log('isLoading updated:', isLoading);
-  }, [isLoading]);
   useEffect(() => {
     const loadInitialData = async () => {
       try {
@@ -139,7 +135,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
       setBackendError(error.response?.data?.message || 'An error occurred. Please try again.');
     } finally {
       setIsButtonDisabled(false); // Re-enable the button
-      setIsLoading(false);
     }
   };
 
@@ -209,7 +204,7 @@ const InvestPage = ({ registeredTeam, userId }) => {
               onClick={handlePlaceOrder}
               disabled={isButtonDisabled}
             >
-              Place Order
+                Place Order
             </button>
             {errorMessage && <p className="error">{errorMessage}</p>}
             {backendError && <p className="error">{backendError}</p>}
