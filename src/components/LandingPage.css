@@ -14,7 +14,7 @@
   justify-content: center;  /* Align items horizontally */
   text-align: center;
   position: relative;
-  overflow: hidden;  /* Ensure no overflow from child elements */
+  overflow-y:scroll ;  /*s Ensure no overflow from child elements */
 }
 
 /* Overlay effect to add glow animation (if needed) */
