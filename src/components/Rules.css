@@ -21,6 +21,7 @@ html, body {
     color: var(--text-light);
     text-align: center; /* Align text for smaller screens */
     padding: 20px;
+    overflow-y:scroll;
 }
 
 .Rules-content {
