@@ -223,16 +223,6 @@ const InvestPage = ({ registeredTeam, userId }) => {
           </div>
           <div
             className="transaction-logs"
-            style={{
-              fontSize: '1.5rem',
-              border: '2px solid wheat',
-              padding: '10px 30px',
-              borderRadius: '10px',
-              backgroundColor: 'black',
-              maxHeight: '300px',
-              overflowY: 'scroll',
-              width: '400px'
-            }}
           >
             <h3>Transaction History</h3>
             {transactionLogs.length > 0 ? (
